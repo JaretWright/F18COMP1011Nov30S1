@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class Sales {
-    HashMap<Customer, ArrayList<Order>> sales;
+    private HashMap<Customer, ArrayList<Order>> sales;
 
     public Sales()
     {
@@ -39,5 +40,22 @@ public class Sales {
                 .sum();
     }
 
+    public Set<Customer> getCustomers()
+    {
+        return sales.keySet();
+    }
+
+    public Customer getTopCustomer()
+    {
+        Customer topCustomer = null;
+
+        for(Customer customer:sales.keySet())
+        {
+            if (topCustomer==null || getAmountSpent(topCustomer)< getAmountSpent(customer))
+                topCustomer = customer;
+        }
+
+        return topCustomer;
+    }
 
 }

@@ -20,11 +20,12 @@ public class HashMapExperiment {
         sales.addOrder(customer3, new Order("Gym Pass",1,1000.34));
 
         //display in a loop all the customers sales info
-        System.out.printf("%s spent $%.2f%n", customer1, sales.getAmountSpent(customer1));
-        System.out.printf("%s spent $%.2f%n", customer2, sales.getAmountSpent(customer2));
-        System.out.printf("%s spent $%.2f%n", customer3, sales.getAmountSpent(customer3));
+        for (Customer customer: sales.getCustomers())
+            System.out.printf("%s spent $%.2f%n", customer, sales.getAmountSpent(customer));
 
         //show the top customer
+        System.out.printf("Our top customer is %s spending %.2f",sales.getTopCustomer(),
+                                    sales.getAmountSpent(sales.getTopCustomer()));
 
         //show the total sales
     }
