@@ -32,6 +32,12 @@ public class Sales {
         sales.get(customer).add(order);
     }
 
+    public double getAmountSpent(Customer customer)
+    {
+        return sales.get(customer).stream()
+                .mapToDouble(order -> order.getPrice()*order.getUnitsOrdered())
+                .sum();
+    }
 
 
 }
